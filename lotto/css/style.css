@@ -1,0 +1,32 @@
+.numbers {
+  height: 40px;
+  margin: 20px 0;
+}
+
+.number {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16pt;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.number.orange {
+  background-color: orange;
+}
+.number.cadetblue {
+  background-color: cadetblue;
+}
+.number.cornflowerblue {
+  background-color: cornflowerblue;
+}
+.number.khaki {
+  background-color: khaki;
+}
+.number.deeppink {
+  background-color: deeppink;
+}
