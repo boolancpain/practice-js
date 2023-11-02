@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    'use strict'
+
+    const Gugudan = () => {
+      const [firstNumber, setFirstNumber] = React.useState(Math.ceil(Math.random() * 9));
+      const [secondNumber, setSecondNumber] = React.useState(Math.ceil(Math.random() * 9));
+      const [value, setValue] = React.useState('');
+      const [result, setResult] = React.useState('');
+      
+      const inputRef = React.useRef(null);
+
+      const onChangeInput = (e) => {
+        setValue(e.target.value);
+      }
+
+      const onSubmitForm = (e) => {
+        e.preventDefault();
+              
+        if(firstNumber * secondNumber === parseInt(value)) {
+          setFirstNumber(Math.ceil(Math.random() * 9));
+          setSecondNumber(Math.ceil(Math.random() * 9));
+          setValue('');
+          setResult(`정답 : ${value}`)
+        } else {
+          setValue('');
+          setResult(`땡`);
+          
+          // focus
+          inputRef.current.focus();
+        }
+      }
+      
+      return (
+        <>
+          <div>
+            {firstNumber} x {secondNumber} ?
+          </div>
+          <form onSubmit={onSubmitForm}>
+            <input type="number" value={value} ref={inputRef} onChange={onChangeInput}/>
+            <button type="submit">입력</button>
+          </form>
+          <div>{result}</div>
+        </>
+      );
+    }
+    /*
+    class Gugudan extends React.Component {
+      state = {
+        firstNumber: Math.ceil(Math.random() * 9), 
+        secondNumber: Math.ceil(Math.random() * 9),
+        value: '',
+        result: ''
+      };
+
+      onSubmit = (e) => {
+        e.preventDefault();
+              
+        if(this.state.firstNumber * this.state.secondNumber === parseInt(this.state.value)) {
+          this.setState((prevState) => {
+            return {
+              firstNumber: Math.ceil(Math.random() * 9), 
+              secondNumber: Math.ceil(Math.random() * 9),
+              value: '',
+              result: `정답 : ${prevState.value}`
+            };
+          })
+        } else {
+          this.setState({
+            value: '',
+            result: '땡!'
+          });
+          // focus
+          this.input.focus();
+        }
+      }
+
+      onChange = (e) => {
+        this.setState({value: e.target.value});
+      }
+
+      input;
+
+      onRefInput = (c) => this.input = c;
+
+      render() {
+        return (
+          <>
+            <div>
+              {this.state.firstNumber} x {this.state.secondNumber} ?
+            </div>
+            <form onSubmit={this.onSubmit}>
+              <input type="number" value={this.state.value} ref={this.onRefInput} onChange={this.onChange}/>
+              <button type="submit">입력</button>
+            </form>
+            <div>{this.state.result}</div>
+          </>
+        );
+      }
+    }
+    */
+  </script>
+  <script type="text/babel">
+    ReactDOM.render(<Gugudan />, document.querySelector('#root'));
+  </script>
+</body>
+</html>

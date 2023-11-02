@@ -1,0 +1,25 @@
+#computer {
+  width: 200px;
+  height: 209px;
+  background-image: url('/images/rsp.png');
+  background-repeat: no-repeat;
+  background-position-y: -105px;
+}
+#computer.rock {
+  background-position-x: 0px;
+}
+#computer.paper {
+  background-position-x: -370px;
+}
+#computer.scissors {
+  background-position-x: -185px;
+}
+
+.btns {
+  margin:10px 0;
+}
+
+.btns button {
+  margin: 0 5px;
+  font-size: 17pt;
+}
