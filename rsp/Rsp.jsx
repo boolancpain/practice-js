@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import useInterval  from './useInterval';
 
 const victories = {
@@ -12,9 +12,10 @@ const changeInterval = 100;
 const Rsp = () => {
   const [status, setStatus] = useState('rock');
   const [result, setResult] = useState('');
+  const [disabled, setDisabled] = useState(false);
  
   const [isRunning, setIsRunning] = useState(true);
-
+  
   // 이미지 바꾸기
   const changeImage = () => {
     if(status === 'rock') {
@@ -30,6 +31,8 @@ const Rsp = () => {
   const onClickBtn = (choice) => (e) => {
     // interval stop
     setIsRunning(false);
+    // buttons disabled
+    setDisabled(true);
 
     console.log(`나 : ${choice}, com : ${status}`);
     if(choice === status) {
@@ -44,6 +47,8 @@ const Rsp = () => {
     setTimeout(() => {
       // 다시 실행
       setIsRunning(true);
+      // 버튼 활성화
+      setDisabled(false);
     }, 2000);
   };
   
@@ -60,9 +65,9 @@ const Rsp = () => {
     <>
       <div id="computer" className={status}></div>
       <div className="btns">
-        <button onClick={onClickBtn('scissors')}>가위</button> 
-        <button onClick={onClickBtn('rock')}>바위</button>
-        <button onClick={onClickBtn('paper')}>보</button>
+        <button onClick={onClickBtn('scissors')} disabled={disabled}>가위</button> 
+        <button onClick={onClickBtn('rock')} disabled={disabled}>바위</button>
+        <button onClick={onClickBtn('paper')} disabled={disabled}>보</button>
       </div>
       {getResult()}
     </>
