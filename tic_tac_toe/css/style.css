@@ -1,0 +1,21 @@
+.tic_tac_toe {
+  width: 400px;
+  height: 400px;
+  border-collapse: collapse;
+}
+
+.tic_tac_toe tr td {
+  border: 2px solid gray;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  font-size: 50pt;
+}
+
+.result {
+  font-size: 20pt;
+  width: 400px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
