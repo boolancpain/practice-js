@@ -1,0 +1,19 @@
+.input {
+  width: 100px;
+  height: 20px;
+  font-size: 15pt;
+  margin-right: 15px;
+}
+
+#board {
+  margin: 15px 0;
+}
+
+#board tr td {
+  border: 1px solid black;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 11pt;
+  font-weight: bold;
+}
