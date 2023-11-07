@@ -11,10 +11,16 @@ const getCellStyle = (data) => {
     case CODE.FLAG:
     case CODE.FLAG_MINE:
       return {
-        backgroundColor: 'green'
+        backgroundColor: 'seagreen',
+        color: 'white'
       }
     case CODE.QUESTION:
     case CODE.QUESTION_MINE:
+      return {
+        backgroundColor: 'dimgrey',
+        color: 'white'
+      }
+    case CODE.CLICKED_MINE:
       return {
         backgroundColor: 'red'
       }
@@ -36,6 +42,15 @@ const getCellStyle = (data) => {
         case 5:
           color = '#985545';
           break;
+        case 6:
+          color = '#8a2be2';
+          break;
+        case 7:
+          color = '#228b22';
+          break;
+        default:
+          color = '#dda0dd';
+          break;
       }
 
       return {
@@ -50,9 +65,9 @@ const getCellText = (data) => {
     case CODE.NORMAL:
       return ''
     case CODE.MINE:
-      return 'X'
+      return ''
     case CODE.CLICKED_MINE:
-      return '펑'
+      return 'X'
     case CODE.FLAG:
     case CODE.FLAG_MINE:
       return '!'
@@ -65,7 +80,7 @@ const getCellText = (data) => {
 }
 
 const Td = ({ row, col }) => {
-  console.log('td render');
+  //console.log('td render');
 
   const { tableData, halted, dispatch } = useContext(TableContext);
 
@@ -117,7 +132,7 @@ const Td = ({ row, col }) => {
       default:
         return;
     }
-  }, [tableData[row][col]])
+  }, [tableData[row][col], halted])
 
   return (
     <td onClick={onClickCell} onContextMenu={onRightClickCell} style={getCellStyle(tableData[row][col])}>{getCellText(tableData[row][col])}</td>

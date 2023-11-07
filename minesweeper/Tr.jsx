@@ -3,7 +3,7 @@ import Td from './Td';
 import { TableContext } from './Minesweeper';
 
 const Tr = ({ row }) => {
-  console.log('tr render');
+  //console.log('tr render');
 
   const { tableData } = useContext(TableContext);
 
