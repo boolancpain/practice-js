@@ -73,7 +73,8 @@ const reducer = (state, action) => {
           }
         }).filter(v => v);
         
-        const mines = aroundCells.map((pos) => tableData[pos[0]][pos[1]]).filter((v) => v === CODE.MINE || v === CODE.FLAG_MINE || v === CODE.QUESTION_MINE);
+        const mines = aroundCells.map((pos) => tableData[pos[0]][pos[1]])
+          .filter((v) => v && (v === CODE.MINE || v === CODE.FLAG_MINE || v === CODE.QUESTION_MINE));
 
         // 지뢰 개수 기록
         tableData[row][col] = mines.length;
@@ -186,8 +187,8 @@ const setMines = (row, col, mine) => {
   }
 
   let result = [];
-  for(let i = 0;i < col;i++) {
-    result.push(arr.splice(0, row));
+  for(let i = 0;i < row;i++) {
+    result.push(arr.splice(0, col));
   }
 
   return result;

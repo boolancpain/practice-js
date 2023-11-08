@@ -26,8 +26,8 @@ const Form = () => {
   return (
     <>
       <div>
-        <input type="number" className="input" onChange={onChangeRow} value={row} maxLength="3"/>
         <input type="number" className="input" onChange={onChangeCol} value={col} maxLength="3"/>
+        <input type="number" className="input" onChange={onChangeRow} value={row} maxLength="3"/>
         <input type="number" className="input" onChange={onChangeMine} value={mine} maxLength="3"/>
         <button onClick={onClickBtn}>생성</button>
       </div>
