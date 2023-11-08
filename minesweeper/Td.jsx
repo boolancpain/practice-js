@@ -1,7 +1,8 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, memo, useMemo } from 'react';
 import { TableContext, CODE, CLICK_CELL, CLICK_MINE, FLAG_CELL, QUESTION_CELL, NORMAL_CELL } from './Minesweeper';
 
 const getCellStyle = (data) => {
+  console.log('get cell style by render');
   switch(data) {
     case CODE.NORMAL:
     case CODE.MINE:
@@ -61,6 +62,7 @@ const getCellStyle = (data) => {
 }
 
 const getCellText = (data) => {
+  console.log('get cell text by render');
   switch(data) {
     case CODE.NORMAL:
       return ''
@@ -79,8 +81,8 @@ const getCellText = (data) => {
   }
 }
 
-const Td = ({ row, col }) => {
-  //console.log('td render');
+const Td = memo(({ row, col }) => {
+  console.log('td render');
 
   const { tableData, halted, dispatch } = useContext(TableContext);
 
@@ -134,9 +136,9 @@ const Td = ({ row, col }) => {
     }
   }, [tableData[row][col], halted])
 
-  return (
+  return useMemo(() => (
     <td onClick={onClickCell} onContextMenu={onRightClickCell} style={getCellStyle(tableData[row][col])}>{getCellText(tableData[row][col])}</td>
-  )
-};
+  ), [tableData[row][col]]);
+});
 
 export default Td;
