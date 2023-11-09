@@ -196,11 +196,11 @@ const setMines = (row, col, mine) => {
 
 const Minesweeper = () => {
   const [state, dispatch] = useReducer(reducer, initState);
-  const { halted } = state;
+  const { tableData, halted, timer, result } = state;
 
   const value = useMemo(() => ({
-    tableData: state.tableData, halted: state.halted, dispatch
-  }), [state.tableData, state.halted]);
+    tableData, halted, dispatch
+  }), [tableData, halted]);
 
   useEffect(() => {
     let timerId;
@@ -219,9 +219,9 @@ const Minesweeper = () => {
   return (
     <TableContext.Provider value={value}>
       <Form />
-      <div className="timer">time : {state.timer}</div>
+      <div className="timer">time : {timer}</div>
       <Table />
-      <div>{state.result}</div>
+      <div>{result}</div>
     </TableContext.Provider>
   );
 }

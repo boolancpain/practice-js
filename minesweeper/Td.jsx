@@ -85,6 +85,7 @@ const Td = memo(({ row, col }) => {
   console.log('td render');
 
   const { tableData, halted, dispatch } = useContext(TableContext);
+  console.log(halted);
 
   const onClickCell = useCallback(() => {
     if(halted) {
@@ -138,7 +139,7 @@ const Td = memo(({ row, col }) => {
 
   return useMemo(() => (
     <td onClick={onClickCell} onContextMenu={onRightClickCell} style={getCellStyle(tableData[row][col])}>{getCellText(tableData[row][col])}</td>
-  ), [tableData[row][col]]);
+  ), [tableData[row][col], halted]);
 });
 
 export default Td;
