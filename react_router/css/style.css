@@ -1,0 +1,130 @@
+/* 로또 */
+.numbers {
+  height: 40px;
+  margin: 20px 0;
+}
+
+.number {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16pt;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.number.orange {
+  background-color: orange;
+}
+.number.cadetblue {
+  background-color: cadetblue;
+}
+.number.cornflowerblue {
+  background-color: cornflowerblue;
+}
+.number.khaki {
+  background-color: khaki;
+}
+.number.deeppink {
+  background-color: deeppink;
+}
+
+/* 반응속도 체크 */
+#screen {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  user-select: none;
+  color: white;
+}
+
+#screen.waiting {
+  background-color: gainsboro;
+  color: black;
+}
+
+#screen.ready {
+  background-color: green;
+}
+
+#screen.now {
+  background-color: red;
+}
+
+/* 가위바위보 */
+#computer {
+  width: 200px;
+  height: 209px;
+  background-image: url('/images/rsp.png');
+  background-repeat: no-repeat;
+  background-position-y: -105px;
+}
+#computer.rock {
+  background-position-x: 0px;
+}
+#computer.paper {
+  background-position-x: -370px;
+}
+#computer.scissors {
+  background-position-x: -185px;
+}
+
+.btns {
+  margin:10px 0;
+}
+
+.btns button {
+  margin: 0 5px;
+  font-size: 17pt;
+}
+
+/* 틱택토 */
+.tic_tac_toe {
+  width: 400px;
+  height: 400px;
+  border-collapse: collapse;
+}
+
+.tic_tac_toe tr td {
+  border: 2px solid gray;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  font-size: 50pt;
+}
+
+.result {
+  font-size: 20pt;
+  width: 400px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+/* 지뢰찾기 */
+.input {
+  width: 100px;
+  height: 20px;
+  font-size: 15pt;
+  margin-right: 15px;
+}
+
+#board {
+  margin: 15px 0;
+}
+
+#board tr td {
+  border: 1px solid black;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.timer {
+  padding: 10px 0;
+}
